@@ -1,0 +1,27 @@
+{
+  "name": "aryan-fampay-assignment",
+  "version": "1.0.0",
+  "description": "fampay-assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryanagrawal22/FamPay-Assignment.git"
+  },
+  "author": "Aryan Agrawal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aryanagrawal22/FamPay-Assignment/issues"
+  },
+  "homepage": "https://github.com/aryanagrawal22/FamPay-Assignment#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.1",
+    "nodemon": "^2.0.20"
+  }
+}
