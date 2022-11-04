@@ -9,7 +9,7 @@ async function getVideo() {
   try {
 
     // Set a cron job for hitting request in every 1 minute
-    cron.schedule("*/10 * * * * *", async () => {
+    cron.schedule("* * * * *", async () => {
 
       const youtube = google.youtube({
         version: "v3",
@@ -17,7 +17,7 @@ async function getVideo() {
       });
 
       // DateTime of 1 minute earlier time and search for videos uploaded after that
-      const publishedAfter = dayjs().subtract(5, "minute").toISOString();
+      const publishedAfter = dayjs().subtract(1, "minute").toISOString();
 
       // Topic to search (Example: News)
       const q = process.env.YOUTUBE_SEARCH_QUERY
