@@ -3,6 +3,7 @@ const dotenv = require("dotenv").config();
 const connect = require("../src/db/connect");
 const Router = require("./routers");
 const cors = require("cors");
+const {getVideo} = require("./jobs/video.job")
 
 const app = express();
 
@@ -28,3 +29,6 @@ if (port == null || port == "") {
 app.listen(port, function () {
   console.log("Server is up and running at port:", port);
 });
+
+// Calling Cron Job to call API every 10 seconds
+getVideo();
