@@ -2,6 +2,8 @@ const cron = require("node-cron");
 const dayjs = require("dayjs");
 const { google } = require("googleapis");
 const YoutubeModel = require("../models/youtube.model")
+const logger = require('../utils/log.util');
+const errorlogger = require('../utils/error.log.util');
 
 async function getVideo() {
   try {
@@ -44,12 +46,13 @@ async function getVideo() {
         publishedAt: item.snippet.publishedAt,
       }));
 
+      logger.info("CronJob Status: Updated "+videos.length +" videos");
       console.log("CronJob Status: Updated "+videos.length +" videos");
 
       await YoutubeModel.create(videos);
     });
   } catch (err) {
-    console.log(err.message);
+    errorlogger.info("CronJob: "+err);
   }
 }
 
