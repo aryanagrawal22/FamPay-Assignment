@@ -1,12 +1,13 @@
 const cron = require("node-cron");
 const dayjs = require("dayjs");
 const { google } = require("googleapis");
+const YoutubeModel = require("../models/youtube.model")
 
 async function getVideo() {
   try {
 
-    // Set a cron job for hitting request in every 10 seconds
-    cron.schedule("*/10 * * * * *", async () => {
+    // Set a cron job for hitting request in every 1 minute
+    cron.schedule("* * * * *", async () => {
 
       const youtube = google.youtube({
         version: "v3",
@@ -43,7 +44,7 @@ async function getVideo() {
         publishedAt: item.snippet.publishedAt,
       }));
 
-      console.log(videos);
+      await YoutubeModel.create(videos);
     });
   } catch (err) {
     console.log(err.message);
