@@ -4,6 +4,7 @@ const { google } = require("googleapis");
 const YoutubeModel = require("../models/youtube.model")
 const logger = require('../utils/log.util');
 const errorlogger = require('../utils/error.log.util');
+const moment = require("moment")
 
 // Get keys from the env file and split it to save it in array
 const keys = process.env.YOUTUBE_API_KEY.split('|')
@@ -19,7 +20,7 @@ async function getVideo() {
     cron.schedule("* * * * *", async () => {
 
       // DateTime of 1 minute earlier time and search for videos uploaded after that
-      const publishedAfter = dayjs().subtract(1, "minute").toISOString();
+      const publishedAfter = moment().subtract(1, 'minutes').toISOString();
 
       // Topic to search (Example: News)
       const query = process.env.YOUTUBE_SEARCH_QUERY

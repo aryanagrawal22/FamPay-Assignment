@@ -30,5 +30,5 @@ app.listen(port, function () {
   console.log("Server is up and running at port:", port);
 });
 
-// Calling Cron Job to call API every 10 seconds
+// Calling Cron Job to call API every 1 minute
 getVideo();
