@@ -49,6 +49,7 @@ Request type: GET
 #### 2. `/videos`
 ```
 URL: /api/videos:page?
+Example: /api/videos?page=2
 Request type: GET
 Optional data parameters: page (default: 1)
 ```
@@ -58,6 +59,7 @@ NOTE: The `page` parameter is optional and defaults to page 1.
 #### 3. `/videos/s`
 ```
 URL: /api/videos/s:q?:page?
+Example: /api/videos/s?q=cricket?page=2
 Request type: GET
 Data parameters: searchString (q)
 Optional data parameters: page (default: 1)
