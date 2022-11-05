@@ -1,5 +1,4 @@
 const cron = require("node-cron");
-const dayjs = require("dayjs");
 const { google } = require("googleapis");
 const YoutubeModel = require("../models/youtube.model")
 const logger = require('../utils/log.util');
