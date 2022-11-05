@@ -1,7 +1,7 @@
 const Router = require("express").Router();
-const {getVideos} = require("../controllers/getVideos.controller");
+const videos = require("./videos.router");
 
-Router.get("/videos", getVideos);
+Router.use("/videos", videos);
 Router.get("", (req, res) => {
   res.send("Welcome to FamPay-Assignment: Search Query is : " + process.env.YOUTUBE_SEARCH_QUERY);
 });

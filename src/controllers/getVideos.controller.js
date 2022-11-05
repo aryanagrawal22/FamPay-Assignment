@@ -26,6 +26,7 @@ async function getVideos(req, res) {
     // Calculate haivng next and having previous pages or not
     const hasPrev = page > 1;
     const hasNext = page < totalPages;
+    const pageItems = page!=totalPages?10:totalItems - (totalPages-1)*10;
 
     res.status(200).json({
       videos,
@@ -34,9 +35,11 @@ async function getVideos(req, res) {
       totalItems,
       totalPages,
       page,
+      pageItems,
     });
   } catch (err) {
     errorlogger.info("/api/videos: " + err);
+    console.log("ERROR: /api/videos (View error.log)")
     res.status(400).send(err);
   }
 }
